@@ -5,14 +5,14 @@ body {
 
 header {
   background: #00cc77;
-  color: rgb(255, 255, 255);
+  color: rgb(9, 0, 0);
   padding: 1px;
   text-align: center;
 }
 
 header p{
   font-size: 0.9em;
-  color: #056982;  
+  color: #056982d6;  
 }
 
 .container {
@@ -22,10 +22,10 @@ header p{
 
 .sidebar {
   width: 20%;
-  background: #064b38;
+  background: #049089;
   padding: 15px;
   box-sizing: border-box;
-  border-right: 1px solid #04725c;
+  border-right: 1px solid #0ac878;
   overflow-y: auto;
 }
 
