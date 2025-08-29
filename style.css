@@ -22,7 +22,7 @@ header p{
 
 .sidebar {
   width: 20%;
-  background: #049089;
+  background: #85bdb9;
   padding: 15px;
   box-sizing: border-box;
   border-right: 1px solid #0ac878;
@@ -50,7 +50,7 @@ header p{
 
 .sidebar a {
   text-decoration: none;
-  color: #08dabb;
+  color: #034e5f;
 }
 
 .sidebar a:hover {
