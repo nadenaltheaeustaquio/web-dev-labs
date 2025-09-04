@@ -1,27 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menu - Eustaquio Cafe</title>
+    <meta charset="UTF-8">
+    <title>Menu - Eustaquio Café</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a3b18a, #dad7cd);
+            color: #3a3a3a;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            background-color: #588157;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 5px solid #3a5a40;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 1.1em;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fefae0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        section h2 {
+            color: #3a5a40;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #b7b7a4;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 15px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #b7b7a4;
+            color: #4a4a4a;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            background-color: #3a5a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Eustaquio Cafe</h1>
+    <header>
+        <h1>Eustaquio Café</h1>
+        <p>Here is the full menu of Eustaquio Café.</p>
+    </header>
 
-    <p>Here is the full menu of Eustaquio Cafe.</p>
-    <ul>
-    <h2>Coffee</h2>
+    <div class="content">
+        <section>
+            <h2>☕ Coffee</h2>
+            <ul>
+                <li>Espresso</li>
+                <li>Latte</li>
+                <li>Cappuccino</li>
+                <li>Hot Chocolate</li>
+            </ul>
+        </section>
 
-        <li>Espresso</li>
-        <li>Latte</li>
-        <li>Cappuccino</li>
-        <li>Hot Chocolate</li>
-
-    <h3>Pastries</h2>
-
-        <li>Croissant</li>
-        <li>Blueberry Muffin</li>
-        <li>Chocolate Chip Cookie</li>
-        <li>Banana Bread</li>
+        <section>
+            <h2>🥐 Pastries</h2>
+            <ul>
+                <li>Croissant</li>
+                <li>Blueberry Muffin</li>
+                <li>Chocolate Chip Cookie</li>
+                <li>Banana Bread</li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 Eustaquio Café. All rights reserved.</p>
