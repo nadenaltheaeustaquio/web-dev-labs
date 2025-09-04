@@ -1,32 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home | Eustaquio Cafe</title>
+    <meta charset="UTF-8">
+    <title>Home | Eustaquio Café</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a3b18a, #dad7cd);
+            color: #3a3a3a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header / Hero */
+        header {
+            background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            background-blend-mode: multiply;
+            background-color: rgba(58, 90, 64, 0.8);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #588157;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fefae0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            color: #3a5a40;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            font-size: 15px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #b7b7a4;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3a5a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>EUSTAQUIO CAFE</h1>
-    <p>"KON'NICHIWA, YOKOSO TO EUSTAQUIO CAFE"</p>
-    <hr>
 
+    <!-- Hero Section -->
+    <header>
+        <h1>EUSTAQUIO CAFÉ</h1>
+        <p>"KON'NICHIWA, YOKOSO TO EUSTAQUIO CAFE"</p>
+    </header>
+
+    <!-- Navigation -->
     <nav>
-        <a href="index.html">Home</a> 
-        <a href="menu.html">Menu</a>|
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
     </nav>
 
-    <hr>
-    <h1>Toy Story</h1>
-    <hr>
-    <h2>Eustaquio's Cafe Menu</h2>
-    <ul>
-        <li>Espresso</li>
-        <li>Latte</li>
-        <li>Cappuccino</li>
-        <li>Hot Chocolate</li>
-        <li>Croissant</li>
-    </ul>
-    <hr>
-    <p>&copy; 2025  Cafe, All rights reserved.</p>
+    <!-- Main Content -->
+    <div class="content">
+        <h2>🌟 Welcome to Eustaquio Café</h2>
+        <p>Where every cup is brewed with love and every bite is filled with comfort. Explore our menu of freshly brewed coffee and warm pastries, made just for you.</p>
+
+        <h2>☕ Featured Menu</h2>
+        <ul>
+            <li>Espresso</li>
+            <li>Latte</li>
+            <li>Cappuccino</li>
+            <li>Hot Chocolate</li>
+            <li>Croissant</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Eustaquio Café. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
