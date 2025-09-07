@@ -6,9 +6,46 @@
   <title>Basic Style</title>
 
   <style>
-    h1 {
-      color: lightgreen;
+    body {
+      background: #f4f1ea; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
       text-align: center;
+    }
+
+    p {
+      color: #3e2f1c; 
+      background: #d9cbb8;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    h1 {
+      color: #6b4226; 
+      font-family: Georgia, serif;
+      margin: 20px 0;
+    }
+
+    .my-btn {
+      background-color: #4a5d23; 
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .my-btn:hover {
+      background-color: #6b4226; 
+    }
+
+    .my-btn:active {
+      background-color: #a68a64; 
     }
   </style>
 
@@ -16,12 +53,13 @@
 </head>
 <body>
   
-    <p style="color:aquamarine; background:lightcyan; text-align:center; font-size:20px;">
-      This is a paragraph with inline CSS styling.
-    </p>
+  <p>
+    This is a paragraph with inline CSS styling (now styled with earth tones 🌿).
+  </p>
 
-    <h1>This is a heading with internal CSS styling.</h1>
+  <h1>This is a heading with internal CSS styling.</h1>
 
-    <button> class="my-btn">Click Me</button>
+    <button class="my-btn">Click Me</button>
+</body>
 
 </html>

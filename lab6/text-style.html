@@ -9,38 +9,84 @@
 
   <style>
     body {
-      background-color: lightcyan;
+      background-color: #f4f1ea; 
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      color: #3e2f1c; 
     }
+
     h1 {
       font-family: Georgia, serif;
-      color: lightgreen;
+      color: #6b4226; 
       text-align: center;
+      margin-bottom: 15px;
     }
 
     h2 {
-      color: darkslategray;
+      color: #4a5d23; 
       text-align: center;
+      margin-bottom: 10px;
     }
+
     p {
-      color: aquamarine;
-      font-size: 20px;
+      color: #3e2f1c; 
+      font-size: 18px;
       text-align: center;
+      background: #d9cbb8; 
+      padding: 15px;
+      border-radius: 10px;
+      width: 70%;
+      margin: 0 auto 20px auto;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.1);
     }
 
     ul {
-        list-style-type: square;
-        color: teal;
-        font-size: 18px;
+      list-style-type: square;
+      color: #6b4226; 
+      font-size: 18px;
+      width: 50%;
+      margin: 0 auto;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid #a68a64;
+      border-radius: 8px;
+      box-shadow: 3px 3px 6px rgba(0,0,0,0.1);
     }
-    </style>
+
+    ul li {
+      margin: 8px 0;
+    }
+
+    .my-btn {
+      display: block;
+      margin: 30px auto;
+      background-color: #4a5d23; 
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .my-btn:hover {
+      background-color: #6b4226; 
+    }
+
+    .my-btn:active {
+      background-color: #a68a64; 
+    }
+  </style>
 </head>
 <body>
   
     <h1>This is a heading with internal CSS styling.</h1>
     <h2>About Me</h2>
-    <p> Hello! My name is Naden, and I am passionate about technology, creativity, and learning new skills. 
-    I believe in continuous growth and applying what I learn in real life. </p>
+    <p>Hello! My name is Naden, and I am passionate about technology, creativity, and learning new skills. 
+    I believe in continuous growth and applying what I learn in real life.</p>
 
     <ul>
       <li>Coding and Web Development</li>
@@ -48,6 +94,7 @@
       <li>Playing online games</li>
     </ul>
 
-    <button class="my-btn">Click Me</button>
+    <button class="my-btn"><i class="fa-solid fa-leaf"></i> Click Me</button>
 
+</body>
 </html>
