@@ -31,7 +31,7 @@
         }
 
         .content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
             background: #fefae0;
             padding: 30px;
@@ -54,8 +54,49 @@
             color: #4a4a4a;
         }
 
-        ul {
-            padding-left: 20px;
+        /* Middle Section (Two Columns: story + image) */
+        .about-middle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .about-middle .story {
+            flex: 1;
+        }
+
+        .about-middle .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-middle img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Bottom Section (Values in Grid) */
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .value-box {
+            background-color: #dad7cd;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .value-box h3 {
+            margin-bottom: 10px;
+            color: #3a5a40;
         }
 
         footer {
@@ -66,6 +107,11 @@
             font-size: 14px;
             margin-top: 40px;
         }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -75,24 +121,46 @@
     </header>
 
     <div class="content">
-        <section>
-            <h2>Our Origin</h2>
-            <p>Eustaquio Café was born out of a deep love for coffee and connection. Inspired by heartfelt moments shared over warm cups, our café is a celebration of love, community, and great taste.</p>
+        <!-- Middle Section -->
+        <section class="about-middle">
+            <div class="story">
+                <h2>Our Origin</h2>
+                <p>Eustaquio Café was born out of a deep love for coffee and connection. Inspired by heartfelt moments shared over warm cups, our café is a celebration of love, community, and great taste.</p>
+            </div>
+            <div class="image">
+              <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" 
+               alt="Cafe Interior" 
+               style="max-width:100%; border-radius:12px;">
+
+
+          </div>
+
         </section>
 
-        <section>
-            <h2>Our Values</h2>
-            <ul>
-                <li>Passion for quality</li>
-                <li>Warm customer service</li>
-                <li>Community connection</li>
-                <li>Sustainable sourcing</li>
-            </ul>
+        <!-- Bottom Section -->
+        <section class="about-values">
+            <div class="value-box">
+                <h3>Passion for Quality</h3>
+                <p>Only the best beans and freshest ingredients.</p>
+            </div>
+            <div class="value-box">
+                <h3>Warm Customer Service</h3>
+                <p>We welcome everyone like family.</p>
+            </div>
+            <div class="value-box">
+                <h3>Community Connection</h3>
+                <p>Creating a hub for gatherings and memories.</p>
+            </div>
+            <div class="value-box">
+                <h3>Sustainable Sourcing</h3>
+                <p>Supporting eco-friendly practices and farmers.</p>
+            </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2025 Eustaquio Café. All rights reserved.</p>
+        <p>&copy; 2025 Eustaquio Café. All rights reserved. | Contact us at 
+        <a href="mailto:nadenaeustaquio@gmail.com">nadenaeustaquio@gmail.com</a></p>
     </footer>
 </body>
 </html>
