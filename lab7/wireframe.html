@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wireframe - About Bean & Brew</title>
+  <style>
+    :root{
+      --accent:#2f2f2f;
+      --hero-bg:#2b2b2b;
+      --card-bg:#f6f5f3;
+      --muted:#666;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #fff;
+      color:#222;
+      line-height:1.5;
+    }
+
+    /* top thin bar that says WIREFRAME */
+    .top-bar{
+      background:var(--accent);
+      color:#fff;
+      text-align:center;
+      padding:8px 10px;
+      font-weight:600;
+      letter-spacing:1px;
+      font-size:14px;
+    }
+
+    /* hero band */
+    .hero{
+      background:var(--hero-bg);
+      color:#fff;
+      padding:44px 20px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0;
+      font-size:28px;
+      letter-spacing:0.5px;
+    }
+    .hero p{
+      margin:8px 0 0;
+      opacity:0.9;
+      color:#ddd;
+    }
+
+    /* main content container */
+    .container{
+      max-width:980px;
+      margin:28px auto;
+      padding:0 18px 60px;
+    }
+
+    /* two-column Our Journey */
+    .about-grid{
+      display:flex;
+      gap:30px;
+      align-items:flex-start;
+      margin-bottom:42px;
+      flex-wrap:wrap;
+    }
+    .about-left{
+      flex:1 1 320px;
+      min-width:260px;
+    }
+    .about-right{
+      flex:1 1 300px;
+      min-width:220px;
+      text-align:center;
+    }
+    .about-right img{
+      width:100%;
+      max-width:420px;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      display:inline-block;
+    }
+
+    h2{
+      color:var(--accent);
+      margin-top:0;
+    }
+    p.lead{
+      color:var(--muted);
+      margin:0;
+    }
+
+    /* values grid */
+    .values {
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+      align-items:start;
+      justify-items:center;
+    }
+    .value-card{
+      background:var(--card-bg);
+      padding:16px;
+      width:100%;
+      max-width:260px;
+      border-radius:8px;
+      text-align:center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      color:var(--accent);
+    }
+
+    .back-link{
+      display:block;
+      text-align:center;
+      margin-top:30px;
+      color:var(--muted);
+      text-decoration:underline;
+      cursor:pointer;
+    }
+
+    /* responsive */
+    @media (max-width:800px){
+      .values{ grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:520px){
+      .about-grid{ flex-direction:column; }
+      .values{ grid-template-columns:1fr; }
+      .hero h1{ font-size:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">WIREFRAME</div>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">About Bean & Brew</h1>
+    <p>Passion. People. Coffee.</p>
+  </section>
+
+  <main class="container">
+    <!-- Our Journey (two-column) -->
+    <section class="about-grid" aria-labelledby="journey-title">
+      <div class="about-left">
+        <h2 id="journey-title">Our Journey</h2>
+        <p class="lead">
+          Founded by two sisters with a dream and a love for coffee, Bean & Brew has grown into a cozy destination for caffeine lovers, remote workers, and friends catching up.
+        </p>
+      </div>
+
+      <div class="about-right">
+        <!-- OPTION A: use local image -->
+        <!-- <img src="images/cafe.jpg" alt="Cafe Interior"> -->
+
+        <!-- OPTION B: working Unsplash photo (use this if you don't have local image) -->
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" alt="Cafe interior">
+      </div>
+    </section>
+
+    <!-- Our Values (grid) -->
+    <section aria-labelledby="values-title">
+      <h2 id="values-title" style="text-align:center">Our Values</h2>
+
+      <div class="values">
+        <div class="value-card">Quality Beans</div>
+        <div class="value-card">Friendly Service</div>
+        <div class="value-card">Sustainable Sourcing</div>
+      </div>
+
+      <a class="back-link" href="index.html">Back to Home</a>
+    </section>
+  </main>
+</body>
+</html>
