@@ -31,7 +31,7 @@
         }
 
         .content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
             background: #fefae0;
             padding: 30px;
@@ -39,11 +39,7 @@
             box-shadow: 0 6px 16px rgba(0,0,0,0.15);
         }
 
-        section {
-            margin-bottom: 25px;
-        }
-
-        section h2 {
+        h2 {
             color: #3a5a40;
             margin-bottom: 15px;
             border-bottom: 2px solid #b7b7a4;
@@ -51,120 +47,116 @@
             padding-bottom: 4px;
         }
 
+        /* Grid layout for menu items */
         .menu-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-    /* Tablet (2 cols) */
-    @media (min-width: 600px) {
-      .menu-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    /* Desktop (3 cols) */
-    @media (min-width: 1024px) {
-      .menu-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-    }
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
-    .menu-item {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+        .menu-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
 
-    .menu-item h3 {
-      margin: 0 0 8px;
-        font-size: 18px;
-      color: #3a5a40;
-    }
+        .menu-item h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            color: #3a5a40;
+        }
 
-    .menu-item p {
-      margin: 14px;
-      font-size: 5px 0;
-      color: #555;
-    }
+        .menu-item p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #555;
+        }
 
-    .menu-item .price {
-      font-weight: bold;
-      color: #6f4e37;
-      margin-top: 10px;
-    }
+        .price {
+            font-weight: bold;
+            color: #3a3a3a;
+            margin-top: 10px;
+        }
 
-    footer {
-      background-color: #3a5a40;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 40px;
-    }
-  </style>
+        footer {
+            background-color: #3a5a40;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Eustaquio Café</h1>
-        <p>Here is the full menu of Eustaquio Café.</p>
+        <p>Our delightful menu crafted for you.</p>
     </header>
 
     <div class="content">
-        <section>
-            <h2>☕ Coffee</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Espresso</h3>
-                    <p>Rich and bold espresso shot.</p>
-                    <span class="price">$2.50</span>
+        <h2>☕ Coffee</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>Espresso</h3>
+                <p>Rich and bold shot of pure coffee.</p>
+                <p class="price">₱90</p>
+            </div>
+            <div class="menu-item">
+                <h3>Latte</h3>
+                <p>Smooth espresso with steamed milk.</p>
+                <p class="price">₱120</p>
+            </div>
+            <div class="menu-item">
+                <h3>Cappuccino</h3>
+                <p>Perfect blend of coffee and milk foam.</p>
+                <p class="price">₱130</p>
+            </div>
+            <div class="menu-item">
+                <h3>Hot Chocolate</h3>
+                <p>Sweet chocolate drink with creamy milk.</p>
+                <p class="price">₱100</p>
+            </div>
+        </div>
 
-                </div>
-                <div class="menu-item">
-                    <h3>Latte</h3>
-                    <p>Creamy latte with steamed milk.</p>
-                    <span class="price">$3.50</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Cappuccino</h3>
-                    <p>Espresso with frothy milk foam.</p>
-                    <span class="price">$3.75</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Americano</h3>
-                    <p>Espresso diluted with hot water.</p>
-                    <span class="price">$2.75</span>
-                </div>
-        </section>
-
-        <section>
-            <h2>🥐 Pastries</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <h3>Croissant</h3>
-                    <p>Buttery and flaky French pastry.</p>
-                    <span class="price">$2.00</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Muffin</h3>
-                    <p>Freshly baked blueberry muffin.</p>
-                    <span class="price">$2.25</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Scone</h3>
-                    <p>Classic scone with clotted cream.</p>
-                    <span class="price">$2.50</span>
-                </div>
-                <div class="menu-item">
-                    <h3>Chocolate Chip Cookie</h3>
-                    <p>Warm cookie loaded with chocolate chips.</p>
-                    <span class="price">$1.75</span>
-                </div>
-               
-               
-        </section>
+        <h2>🥐 Pastries</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h3>Croissant</h3>
+                <p>Buttery and flaky French pastry.</p>
+                <p class="price">₱75</p>
+            </div>
+            <div class="menu-item">
+                <h3>Blueberry Muffin</h3>
+                <p>Soft muffin filled with blueberries.</p>
+                <p class="price">₱85</p>
+            </div>
+            <div class="menu-item">
+                <h3>Chocolate Chip Cookie</h3>
+                <p>Classic cookie with chocolate chips.</p>
+                <p class="price">₱50</p>
+            </div>
+            <div class="menu-item">
+                <h3>Banana Bread</h3>
+                <p>Moist bread baked with ripe bananas.</p>
+                <p class="price">₱95</p>
+            </div>
+        </div>
     </div>
 
     <footer>
