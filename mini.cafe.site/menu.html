@@ -51,31 +51,60 @@
             padding-bottom: 4px;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
+        .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
 
-        li {
-            font-size: 15px;
-            padding: 8px 0;
-            border-bottom: 1px dashed #b7b7a4;
-            color: #4a4a4a;
-        }
+    /* Tablet (2 cols) */
+    @media (min-width: 600px) {
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-        li:last-child {
-            border-bottom: none;
-        }
+    /* Desktop (3 cols) */
+    @media (min-width: 1024px) {
+      .menu-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
 
-        footer {
-            background-color: #3a5a40;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-            margin-top: 40px;
-        }
-    </style>
+    .menu-item {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .menu-item h3 {
+      margin: 0 0 8px;
+        font-size: 18px;
+      color: #3a5a40;
+    }
+
+    .menu-item p {
+      margin: 14px;
+      font-size: 5px 0;
+      color: #555;
+    }
+
+    .menu-item .price {
+      font-weight: bold;
+      color: #6f4e37;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #3a5a40;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
     <header>
@@ -86,22 +115,55 @@
     <div class="content">
         <section>
             <h2>☕ Coffee</h2>
-            <ul>
-                <li>Espresso</li>
-                <li>Latte</li>
-                <li>Cappuccino</li>
-                <li>Hot Chocolate</li>
-            </ul>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Espresso</h3>
+                    <p>Rich and bold espresso shot.</p>
+                    <span class="price">$2.50</span>
+
+                </div>
+                <div class="menu-item">
+                    <h3>Latte</h3>
+                    <p>Creamy latte with steamed milk.</p>
+                    <span class="price">$3.50</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso with frothy milk foam.</p>
+                    <span class="price">$3.75</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Americano</h3>
+                    <p>Espresso diluted with hot water.</p>
+                    <span class="price">$2.75</span>
+                </div>
         </section>
 
         <section>
             <h2>🥐 Pastries</h2>
-            <ul>
-                <li>Croissant</li>
-                <li>Blueberry Muffin</li>
-                <li>Chocolate Chip Cookie</li>
-                <li>Banana Bread</li>
-            </ul>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Croissant</h3>
+                    <p>Buttery and flaky French pastry.</p>
+                    <span class="price">$2.00</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Muffin</h3>
+                    <p>Freshly baked blueberry muffin.</p>
+                    <span class="price">$2.25</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Scone</h3>
+                    <p>Classic scone with clotted cream.</p>
+                    <span class="price">$2.50</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Chocolate Chip Cookie</h3>
+                    <p>Warm cookie loaded with chocolate chips.</p>
+                    <span class="price">$1.75</span>
+                </div>
+               
+               
         </section>
     </div>
 
