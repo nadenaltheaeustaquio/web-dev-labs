@@ -1,190 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Menu - Eustaquio Café</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <style>
+        /* --- Color palette kept from your original design --- */
+        :root{
+            --header-green: #588157;
+            --dark-green: #3a5a40;
+            --bg-1: #a3b18a;
+            --bg-2: #dad7cd;
+            --panel: #fefae0;
+            --text: #3a3a3a;
+        }
+
+        * { box-sizing: border-box; }
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #a3b18a, #dad7cd);
-            color: #3a3a3a;
+            background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            color: var(--text);
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing:antialiased;
         }
 
         header {
-            background-color: #588157;
+            background-color: var(--header-green);
             color: #fff;
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 5px solid #3a5a40;
+            padding: 36px 20px;
+            border-bottom: 5px solid var(--dark-green);
+        }
+        header h1 { margin: 0; font-size: 2.1rem; letter-spacing: 0.4px; }
+        header p { margin: 8px 0 0; font-size: 1rem; opacity: 0.95; }
+
+        .container {
+            max-width: 1100px;
+            margin: 32px auto;
+            padding: 24px;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2em;
-        }
-
-        header p {
-            margin-top: 8px;
-            font-size: 1.1em;
-        }
-
-        .content {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: #fefae0;
-            padding: 30px;
+        .panel {
+            background: var(--panel);
+            padding: 26px;
             border-radius: 12px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
-        h2 {
-            color: #3a5a40;
-            margin-bottom: 15px;
+        h2.section-title {
+            color: var(--dark-green);
+            margin: 0 0 14px 0;
             border-bottom: 2px solid #b7b7a4;
             display: inline-block;
-            padding-bottom: 4px;
+            padding-bottom: 6px;
+            font-size: 1.25rem;
         }
 
-        /* Grid layout for menu items */
+        /* Grid layout */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 18px;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .menu-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        @media (max-width: 980px) {
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
         }
-
-        @media (max-width: 600px) {
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 720px) {
+            .menu-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 420px) {
+            .menu-grid { grid-template-columns: 1fr; }
         }
 
         .menu-item {
-            background: #fff;
-            padding: 15px;
+            background: white;
+            padding: 14px;
             border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
+            gap: 10px;
+        }
+
+        /* Circle image */
+        .item-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex: 0 0 90px;
+            display: inline-block;
+            border: 4px solid #fff;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            background: #eee;
+        }
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .menu-item h3 {
-            margin: 0 0 8px;
-            font-size: 18px;
-            color: #3a5a40;
+            margin: 0;
+            color: var(--dark-green);
+            font-size: 1rem;
+        }
+        .menu-item p.desc {
+            margin: 0;
+            color: #6b6b6b;
+            font-size: 0.9rem;
+        }
+        .menu-item p.price {
+            margin: 6px 0 0;
+            font-weight: 700;
+            color: var(--text);
         }
 
-        .menu-item p {
-            font-size: 14px;
-            margin: 5px 0;
-            color: #555;
+        .menu-item .controls {
+            margin-top: 8px;
+            width: 100%;
+            display:flex;
+            gap:8px;
+            justify-content:center;
+            align-items:center;
         }
 
-        .price {
-            font-weight: bold;
-            color: #3a3a3a;
-            margin-top: 10px;
+        .menu-item button.order {
+            padding: 8px 12px;
+            background: var(--dark-green);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .menu-item button.order:hover {
+            background: var(--header-green);
+        }
+
+        /* Order summary */
+        #summary {
+            margin-top: 20px;
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #e3e0d3;
+        }
+        #summary h3 { margin: 0 0 8px 0; color: var(--dark-green); }
+        #order-list {
+            white-space: pre-line;
+            color: #444;
+            font-size: 0.95rem;
+            min-height: 28px;
         }
 
         footer {
-            background-color: #3a5a40;
+            background-color: var(--dark-green);
             color: #fff;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             font-size: 14px;
-            margin-top: 40px;
+            margin-top: 28px;
+            border-radius: 0 0 6px 6px;
+        }
+
+        /* small helpful note */
+        .note {
+            font-size: 0.9rem;
+            color: #5b5a5a;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Eustaquio Café</h1>
         <p>Our delightful menu crafted for you.</p>
     </header>
 
-    <div class="content">
-        <h2>☕ Coffee</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Espresso</h3>
-                <p>Rich and bold shot of pure coffee.</p>
-                <p class="price">₱90</p>
-            </div>
-            <div class="menu-item">
-                <h3>Latte</h3>
-                <p>Smooth espresso with steamed milk.</p>
-                <p class="price">₱120</p>
-            </div>
-            <div class="menu-item">
-                <h3>Cappuccino</h3>
-                <p>Perfect blend of coffee and milk foam.</p>
-                <p class="price">₱130</p>
-            </div>
-            <div class="menu-item">
-                <h3>Hot Chocolate</h3>
-                <p>Sweet chocolate drink with creamy milk.</p>
-                <p class="price">₱100</p>
-            </div>
-        </div>
+    <div class="container">
+        <div class="panel">
 
-        <h2>🥐 Pastries</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Croissant</h3>
-                <p>Buttery and flaky French pastry.</p>
-                <p class="price">₱75</p>
-            </div>
-            <div class="menu-item">
-                <h3>Blueberry Muffin</h3>
-                <p>Soft muffin filled with blueberries.</p>
-                <p class="price">₱85</p>
-            </div>
-            <div class="menu-item">
-                <h3>Chocolate Chip Cookie</h3>
-                <p>Classic cookie with chocolate chips.</p>
-                <p class="price">₱50</p>
-            </div>
-            <div class="menu-item">
-                <h3>Banana Bread</h3>
-                <p>Moist bread baked with ripe bananas.</p>
-                <p class="price">₱95</p>
-            </div>
-        </div>
+            <!-- Coffee Section -->
+            <h2 class="section-title">☕ Coffee</h2>
+            <div class="menu-grid" id="coffee-grid">
+                <div class="menu-item" data-name="Espresso" data-price="90">
+                    <div class="item-image"><img src="images/espresso.jpg" alt="Espresso"></div>
+                    <h3>Espresso</h3>
+                    <p class="desc">Rich and bold shot of pure coffee.</p>
+                    <p class="price">₱90</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Espresso',90)">Order Now</button>
+                    </div>
+                </div>
 
-        <h2>🍵 Tea</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Green Tea</h3>
-                <p>Refreshing and healthy green tea blend.</p>
-                <p class="price">₱80</p>
+                <div class="menu-item" data-name="Latte" data-price="120">
+                    <div class="item-image"><img src="images/latte.jpg" alt="Latte"></div>
+                    <h3>Latte</h3>
+                    <p class="desc">Smooth espresso with steamed milk.</p>
+                    <p class="price">₱120</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Latte',120)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Cappuccino" data-price="130">
+                    <div class="item-image"><img src="images/cappuccino.jpg" alt="Cappuccino"></div>
+                    <h3>Cappuccino</h3>
+                    <p class="desc">Perfect blend of coffee and milk foam.</p>
+                    <p class="price">₱130</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Cappuccino',130)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Hot Chocolate" data-price="100">
+                    <div class="item-image"><img src="images/hotchocolate.jpg" alt="Hot Chocolate"></div>
+                    <h3>Hot Chocolate</h3>
+                    <p class="desc">Sweet chocolate drink with creamy milk.</p>
+                    <p class="price">₱100</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Hot Chocolate',100)">Order Now</button>
+                    </div>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Black Tea</h3>
-                <p>Strong and bold tea flavor.</p>
-                <p class="price">₱85</p>
+
+            <!-- Pastries Section -->
+            <h2 class="section-title" style="margin-top:22px;">🥐 Pastries</h2>
+            <div class="menu-grid" id="pastry-grid">
+                <div class="menu-item" data-name="Croissant" data-price="75">
+                    <div class="item-image"><img src="images/croissant.jpg" alt="Croissant"></div>
+                    <h3>Croissant</h3>
+                    <p class="desc">Buttery and flaky French pastry.</p>
+                    <p class="price">₱75</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Croissant',75)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Blueberry Muffin" data-price="85">
+                    <div class="item-image"><img src="images/blueberry.jpg" alt="Blueberry Muffin"></div>
+                    <h3>Blueberry Muffin</h3>
+                    <p class="desc">Soft muffin filled with blueberries.</p>
+                    <p class="price">₱85</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Blueberry Muffin',85)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Chocolate Chip Cookie" data-price="50">
+                    <div class="item-image"><img src="images/chocolatechip.jpg" alt="Chocolate Chip Cookie"></div>
+                    <h3>Chocolate Chip Cookie</h3>
+                    <p class="desc">Classic cookie with chocolate chips.</p>
+                    <p class="price">₱50</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Chocolate Chip Cookie',50)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Banana Bread" data-price="95">
+                    <div class="item-image"><img src="images/bananaBread.jpg" alt="Banana Bread"></div>
+                    <h3>Banana Bread</h3>
+                    <p class="desc">Moist bread baked with ripe bananas.</p>
+                    <p class="price">₱95</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Banana Bread',95)">Order Now</button>
+                    </div>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Milk Tea</h3>
-                <p>Sweet creamy tea with chewy pearls.</p>
-                <p class="price">₱110</p>
+
+            <!-- Tea Section -->
+            <h2 class="section-title" style="margin-top:22px;">🍵 Tea</h2>
+            <div class="menu-grid" id="tea-grid">
+                <div class="menu-item" data-name="Green Tea" data-price="80">
+                    <div class="item-image"><img src="images/greenTea.jpg" alt="Green Tea"></div>
+                    <h3>Green Tea</h3>
+                    <p class="desc">Refreshing and healthy green tea blend.</p>
+                    <p class="price">₱80</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Green Tea',80)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Black Tea" data-price="85">
+                    <div class="item-image"><img src="images/blackTea.jpg" alt="Black Tea"></div>
+                    <h3>Black Tea</h3>
+                    <p class="desc">Strong and bold tea flavor.</p>
+                    <p class="price">₱85</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Black Tea',85)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Milk Tea" data-price="110">
+                    <div class="item-image"><img src="images/Milktea.jpg" alt="Milk Tea"></div>
+                    <h3>Milk Tea</h3>
+                    <p class="desc">Sweet creamy tea with chewy pearls.</p>
+                    <p class="price">₱110</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Milk Tea',110)">Order Now</button>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-name="Lemon Iced Tea" data-price="95">
+                    <div class="item-image"><img src="images/latte.jpg" alt="Lemon Iced Tea"></div>
+                    <h3>Lemon Iced Tea</h3>
+                    <p class="desc">Chilled tea with a zesty lemon twist.</p>
+                    <p class="price">₱95</p>
+                    <div class="controls">
+                        <button class="order" onclick="orderItem('Lemon Iced Tea',95)">Order Now</button>
+                    </div>
+                </div>
             </div>
-            <div class="menu-item">
-                <h3>Lemon Iced Tea</h3>
-                <p>Chilled tea with a zesty lemon twist.</p>
-                <p class="price">₱95</p>
+
+            <!-- Order Summary -->
+            <div id="summary">
+                <h3>Order Summary</h3>
+                <p id="order-list">No orders yet.</p>
             </div>
-        </div>
-    </div>
+
+        </div><!-- .panel -->
+    </div><!-- .container -->
 
     <footer>
         <p>&copy; 2025 Eustaquio Café. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Simple order handling: alert + summary with counts & totals
+        const orders = {}; // { "Latte": { qty: 1, price: 120 }, ... }
+
+        function orderItem(name, price) {
+            // show alert immediately
+            alert("You ordered " + name + "!");
+
+            // update orders
+            if (!orders[name]) {
+                orders[name] = { qty: 0, price: price };
+            }
+            orders[name].qty += 1;
+
+            // refresh summary
+            renderSummary();
+        }
+
+        function renderSummary() {
+            const orderListEl = document.getElementById('order-list');
+            const entries = Object.entries(orders);
+            if (entries.length === 0) {
+                orderListEl.innerText = 'No orders yet.';
+                return;
+            }
+
+            let lines = [];
+            let total = 0;
+            for (const [name, info] of entries) {
+                const line = `${info.qty} x ${name} — ₱${info.price} each  (Subtotal: ₱${info.qty * info.price})`;
+                lines.push(line);
+                total += info.qty * info.price;
+            }
+            lines.push('-----------------------------');
+            lines.push('Total: ₱' + total);
+            orderListEl.innerText = lines.join('\n');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.item-image img').forEach(img => {
+                if (img.src.includes('YOUR_IMAGE_URL_HERE') || !img.src) {
+                    // simple inline gray circle placeholder (SVG data URI)
+                    img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">' +
+                        '<rect width="100%" height="100%" fill="#e6e2d3"/>' +
+                        '<text x="50%" y="50%" font-size="20" dominant-baseline="middle" text-anchor="middle" fill="#8a8a8a">Image</text>' +
+                        '</svg>'
+                    );
+                }
+                // ensure alt exists
+                if (!img.alt || img.alt.trim()==='') img.alt = 'Menu item';
+            });
+        });
+    </script>
 </body>
 </html>
