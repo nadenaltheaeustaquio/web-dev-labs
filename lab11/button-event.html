@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 20px 40px;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+            width: fit-content;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        p {
+            color: #555;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Button Event</h1>
+    <p>Click the button below to see a message.</p>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <script>
+        function showMessage() {
+            alert("Thanks for clicking!");
+        }
+    </script>
+
+</body>
+</html>
