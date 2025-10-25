@@ -5,8 +5,7 @@
     <title>Menu - Eustaquio Café</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <style>
-        /* --- Color palette kept from your original design --- */
-        :root{
+        :root {
             --header-green: #588157;
             --dark-green: #3a5a40;
             --bg-1: #a3b18a;
@@ -22,7 +21,6 @@
             color: var(--text);
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing:antialiased;
         }
 
         header {
@@ -32,8 +30,8 @@
             padding: 36px 20px;
             border-bottom: 5px solid var(--dark-green);
         }
-        header h1 { margin: 0; font-size: 2.1rem; letter-spacing: 0.4px; }
-        header p { margin: 8px 0 0; font-size: 1rem; opacity: 0.95; }
+        header h1 { margin: 0; font-size: 2.1rem; }
+        header p { margin: 8px 0 0; font-size: 1rem; }
 
         .container {
             max-width: 1100px;
@@ -57,7 +55,6 @@
             font-size: 1.25rem;
         }
 
-        /* Grid layout */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -87,23 +84,20 @@
             gap: 10px;
         }
 
-        /* Circle image */
         .item-image {
             width: 90px;
             height: 90px;
             border-radius: 50%;
             overflow: hidden;
-            flex: 0 0 90px;
-            display: inline-block;
             border: 4px solid #fff;
             box-shadow: 0 6px 14px rgba(0,0,0,0.12);
             background: #eee;
         }
+
         .item-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
         .menu-item h3 {
@@ -111,24 +105,17 @@
             color: var(--dark-green);
             font-size: 1rem;
         }
+
         .menu-item p.desc {
             margin: 0;
             color: #6b6b6b;
             font-size: 0.9rem;
         }
+
         .menu-item p.price {
             margin: 6px 0 0;
             font-weight: 700;
             color: var(--text);
-        }
-
-        .menu-item .controls {
-            margin-top: 8px;
-            width: 100%;
-            display:flex;
-            gap:8px;
-            justify-content:center;
-            align-items:center;
         }
 
         .menu-item button.order {
@@ -140,11 +127,11 @@
             cursor: pointer;
             font-weight: 600;
         }
+
         .menu-item button.order:hover {
             background: var(--header-green);
         }
 
-        /* Order summary */
         #summary {
             margin-top: 20px;
             background: white;
@@ -152,6 +139,7 @@
             border-radius: 10px;
             border: 1px solid #e3e0d3;
         }
+
         #summary h3 { margin: 0 0 8px 0; color: var(--dark-green); }
         #order-list {
             white-space: pre-line;
@@ -169,13 +157,6 @@
             margin-top: 28px;
             border-radius: 0 0 6px 6px;
         }
-
-        /* small helpful note */
-        .note {
-            font-size: 0.9rem;
-            color: #5b5a5a;
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -188,135 +169,102 @@
     <div class="container">
         <div class="panel">
 
-            <!-- Coffee Section -->
+            <!-- Coffee -->
             <h2 class="section-title">☕ Coffee</h2>
-            <div class="menu-grid" id="coffee-grid">
-                <div class="menu-item" data-name="Espresso" data-price="90">
+            <div class="menu-grid">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/espresso.jpg" alt="Espresso"></div>
                     <h3>Espresso</h3>
                     <p class="desc">Rich and bold shot of pure coffee.</p>
                     <p class="price">₱90</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Espresso',90)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Espresso', 90)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Latte" data-price="120">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/latte.jpg" alt="Latte"></div>
                     <h3>Latte</h3>
                     <p class="desc">Smooth espresso with steamed milk.</p>
                     <p class="price">₱120</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Latte',120)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Latte', 120)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Cappuccino" data-price="130">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/cappuccino.jpg" alt="Cappuccino"></div>
                     <h3>Cappuccino</h3>
                     <p class="desc">Perfect blend of coffee and milk foam.</p>
                     <p class="price">₱130</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Cappuccino',130)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Cappuccino', 130)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Hot Chocolate" data-price="100">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/hotchocolate.jpg" alt="Hot Chocolate"></div>
                     <h3>Hot Chocolate</h3>
                     <p class="desc">Sweet chocolate drink with creamy milk.</p>
                     <p class="price">₱100</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Hot Chocolate',100)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Hot Chocolate', 100)">Order Now</button>
                 </div>
             </div>
 
-            <!-- Pastries Section -->
+            <!-- Pastries -->
             <h2 class="section-title" style="margin-top:22px;">🥐 Pastries</h2>
-            <div class="menu-grid" id="pastry-grid">
-                <div class="menu-item" data-name="Croissant" data-price="75">
+            <div class="menu-grid">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/croissant.jpg" alt="Croissant"></div>
                     <h3>Croissant</h3>
                     <p class="desc">Buttery and flaky French pastry.</p>
                     <p class="price">₱75</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Croissant',75)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Croissant', 75)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Blueberry Muffin" data-price="85">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/blueberry.jpg" alt="Blueberry Muffin"></div>
                     <h3>Blueberry Muffin</h3>
                     <p class="desc">Soft muffin filled with blueberries.</p>
                     <p class="price">₱85</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Blueberry Muffin',85)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Blueberry Muffin', 85)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Chocolate Chip Cookie" data-price="50">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/chocolatechip.jpg" alt="Chocolate Chip Cookie"></div>
                     <h3>Chocolate Chip Cookie</h3>
                     <p class="desc">Classic cookie with chocolate chips.</p>
                     <p class="price">₱50</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Chocolate Chip Cookie',50)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Chocolate Chip Cookie', 50)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Banana Bread" data-price="95">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/bananaBread.jpg" alt="Banana Bread"></div>
                     <h3>Banana Bread</h3>
                     <p class="desc">Moist bread baked with ripe bananas.</p>
                     <p class="price">₱95</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Banana Bread',95)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Banana Bread', 95)">Order Now</button>
                 </div>
             </div>
 
-            <!-- Tea Section -->
+            <!-- Tea -->
             <h2 class="section-title" style="margin-top:22px;">🍵 Tea</h2>
-            <div class="menu-grid" id="tea-grid">
-                <div class="menu-item" data-name="Green Tea" data-price="80">
+            <div class="menu-grid">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/greenTea.jpg" alt="Green Tea"></div>
                     <h3>Green Tea</h3>
                     <p class="desc">Refreshing and healthy green tea blend.</p>
                     <p class="price">₱80</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Green Tea',80)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Green Tea', 80)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Black Tea" data-price="85">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/blackTea.jpg" alt="Black Tea"></div>
                     <h3>Black Tea</h3>
                     <p class="desc">Strong and bold tea flavor.</p>
                     <p class="price">₱85</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Black Tea',85)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Black Tea', 85)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Milk Tea" data-price="110">
+                <div class="menu-item">
                     <div class="item-image"><img src="images/Milktea.jpg" alt="Milk Tea"></div>
                     <h3>Milk Tea</h3>
                     <p class="desc">Sweet creamy tea with chewy pearls.</p>
                     <p class="price">₱110</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Milk Tea',110)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Milk Tea', 110)">Order Now</button>
                 </div>
-
-                <div class="menu-item" data-name="Lemon Iced Tea" data-price="95">
-                    <div class="item-image"><img src="images/latte.jpg" alt="Lemon Iced Tea"></div>
+                <div class="menu-item">
+                    <div class="item-image"><img src="images/lemonTea.jpg" alt="Lemon Iced Tea"></div>
                     <h3>Lemon Iced Tea</h3>
                     <p class="desc">Chilled tea with a zesty lemon twist.</p>
                     <p class="price">₱95</p>
-                    <div class="controls">
-                        <button class="order" onclick="orderItem('Lemon Iced Tea',95)">Order Now</button>
-                    </div>
+                    <button class="order" onclick="orderItem('Lemon Iced Tea', 95)">Order Now</button>
                 </div>
             </div>
 
@@ -325,67 +273,13 @@
                 <h3>Order Summary</h3>
                 <p id="order-list">No orders yet.</p>
             </div>
-
-        </div><!-- .panel -->
-    </div><!-- .container -->
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 Eustaquio Café. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Simple order handling: alert + summary with counts & totals
-        const orders = {}; // { "Latte": { qty: 1, price: 120 }, ... }
-
-        function orderItem(name, price) {
-            // show alert immediately
-            alert("You ordered " + name + "!");
-
-            // update orders
-            if (!orders[name]) {
-                orders[name] = { qty: 0, price: price };
-            }
-            orders[name].qty += 1;
-
-            // refresh summary
-            renderSummary();
-        }
-
-        function renderSummary() {
-            const orderListEl = document.getElementById('order-list');
-            const entries = Object.entries(orders);
-            if (entries.length === 0) {
-                orderListEl.innerText = 'No orders yet.';
-                return;
-            }
-
-            let lines = [];
-            let total = 0;
-            for (const [name, info] of entries) {
-                const line = `${info.qty} x ${name} — ₱${info.price} each  (Subtotal: ₱${info.qty * info.price})`;
-                lines.push(line);
-                total += info.qty * info.price;
-            }
-            lines.push('-----------------------------');
-            lines.push('Total: ₱' + total);
-            orderListEl.innerText = lines.join('\n');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.item-image img').forEach(img => {
-                if (img.src.includes('YOUR_IMAGE_URL_HERE') || !img.src) {
-                    // simple inline gray circle placeholder (SVG data URI)
-                    img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">' +
-                        '<rect width="100%" height="100%" fill="#e6e2d3"/>' +
-                        '<text x="50%" y="50%" font-size="20" dominant-baseline="middle" text-anchor="middle" fill="#8a8a8a">Image</text>' +
-                        '</svg>'
-                    );
-                }
-                // ensure alt exists
-                if (!img.alt || img.alt.trim()==='') img.alt = 'Menu item';
-            });
-        });
-    </script>
+    <script src="menu.js"></script>
 </body>
 </html>

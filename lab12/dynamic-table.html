@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Product Table</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2f2f2f;
+      color: #f9f9f9;
+      margin: 0;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: #3c3c3c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #555;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #444;
+    }
+
+    tr:hover {
+      background-color: #555;
+      transition: 0.3s;
+    }
+
+    footer {
+      margin-top: 50px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>📋 Dynamic Product Table</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Price (₱)</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+  <footer>EUSTAQUIO - Dynamic Table</footer>
+
+  <script>
+    const products = [
+      { name: "Ballpen", quantity: 10, price: 15 },
+      { name: "Notebook", quantity: 6, price: 40 },
+      { name: "Eraser", quantity: 12, price: 10 },
+      { name: "Pencil", quantity: 8, price: 12 },
+      { name: "Marker", quantity: 5, price: 25 }
+    ];
+
+    const tbody = document.getElementById("table-body");
+
+    products.forEach(item => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>${item.price}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script>
+</body>
+</html>

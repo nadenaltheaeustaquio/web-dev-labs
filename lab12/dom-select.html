@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Selection</title>
+  <script src="dom.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2f2f2f;
+      color: #f9f9f9;
+      text-align: center;
+      margin: 0;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      transition: color 0.3s;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #2f2f2f;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #ccc;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 100px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="page-title">WEH DNGA?</h1>
+  <button onclick="changeTitle()">Change Title</button>
+
+  <footer>EUSTAQUIO 2025 </footer>
+</body>
+</html>
