@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #cfe0c3, #8fb996);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #f7f9f3;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+      border: 1px solid #c2d3b0;
+    }
+
+    h2 {
+      color: #3b5e42;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: #4d6b53;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #a9c3a2;
+      border-radius: 8px;
+      background-color: #f0f6ef;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #7fa67f;
+      box-shadow: 0 0 5px #a6c8a4;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    button {
+      flex: 1;
+      background: #6b8f71;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #557b5a;
+      transform: scale(1.05);
+    }
+
+    .clear-btn {
+      background: #b1cbbb;
+      color: #2f4f4f;
+    }
+
+    .clear-btn:hover {
+      background: #9ab9a6;
+    }
+
+    #result {
+      margin-top: 20px;
+      background: #e6f1e3;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #b5c9b1;
+      color: #3b5e42;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    #result.fade-out {
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Simple Form</h2>
+
+    <form id="myForm" onsubmit="handleSubmit(event)">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <div class="btn-group">
+        <button type="submit">Submit</button>
+        <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+      </div>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      document.getElementById("result").classList.remove("fade-out");
+      document.getElementById("result").innerHTML = `
+        <h4>Submitted Data:</h4>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+      `;
+    }
+
+    function clearForm() {
+      const result = document.getElementById("result");
+      document.getElementById("myForm").reset();
+      result.classList.add("fade-out");
+      setTimeout(() => result.innerHTML = "", 500); // clear after fade
+    }
+  </script>
+</body>
+</html>

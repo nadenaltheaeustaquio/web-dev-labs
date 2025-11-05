@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #cfe0c3, #8fb996);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #f7f9f3;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 360px;
+      text-align: center;
+      border: 1px solid #c2d3b0;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    h2 {
+      color: #3b5e42;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #a9c3a2;
+      border-radius: 8px;
+      background-color: #f0f6ef;
+      outline: none;
+      transition: 0.3s;
+      margin-bottom: 10px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #7fa67f;
+      box-shadow: 0 0 5px #a6c8a4;
+    }
+
+    button {
+      background: #6b8f71;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #557b5a;
+    }
+
+    .feedback-list {
+      margin-top: 20px;
+      background: #e6f1e3;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #b5c9b1;
+      color: #3b5e42;
+      text-align: left;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .success {
+      margin-top: 20px;
+      background: #d7eed0;
+      padding: 15px;
+      border-radius: 10px;
+      color: #2f4f2f;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .back-btn {
+      margin-top: 10px;
+      background: #6b8f71;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: #557b5a;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Feedback Form</h2>
+
+    <form id="feedbackForm" onsubmit="validateForm(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Feedback" rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="alert"></div>
+
+    <h4 style="color:#3b5e42; margin-top:20px;">Previous Feedback:</h4>
+    <div class="feedback-list" id="feedbackList"></div>
+  </div>
+
+  <script>
+    const feedbacks = [];
+
+    function validateForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const alertBox = document.getElementById("alert");
+
+      // Validation
+      if (name === "" || email === "" || message === "") {
+        alertBox.innerHTML = "<div class='success' style='background:#f9d6d5; color:#8b0000;'>All fields are required.</div>";
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alertBox.innerHTML = "<div class='success' style='background:#f9d6d5; color:#8b0000;'>Please enter a valid email address.</div>";
+        return;
+      }
+
+      if (message.length < 5) {
+        alertBox.innerHTML = "<div class='success' style='background:#f9d6d5; color:#8b0000;'>Message must be at least 5 characters long.</div>";
+        return;
+      }
+
+      // If valid, add feedback
+      feedbacks.push({ name, email, message });
+      displayFeedbacks();
+
+      // Show success message
+      alertBox.innerHTML = `
+        <div class="success">
+          Thank you, ${name}! Your feedback was submitted successfully.
+          <br><br>
+          <button onclick="goBack()" class="back-btn">Back to Home</button>
+        </div>
+      `;
+
+      document.getElementById("feedbackForm").reset();
+    }
+
+    function displayFeedbacks() {
+      const list = document.getElementById("feedbackList");
+      list.innerHTML = "";
+      feedbacks.forEach(f => {
+        const div = document.createElement("div");
+        div.innerHTML = `<strong>${f.name}</strong> (${f.email}): ${f.message}`;
+        list.appendChild(div);
+      });
+    }
+
+    function goBack() {
+      window.location.href = "index.html"; // change if your homepage file name is different
+    }
+  </script>
+</body>
+</html>

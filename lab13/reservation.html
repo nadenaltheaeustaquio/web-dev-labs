@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #cfe0c3, #8fb996);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #f7f9f3;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #a9c3a2;
+      outline: none;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button {
+      flex: 1;
+      background: #6b8f71;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover { background: #557b5a; }
+    .clear-btn {
+      background: #b1cbbb;
+      color: #2f4f4f;
+    }
+    .clear-btn:hover {
+      background: #9ab9a6;
+    }
+    #output {
+      background: #e6f1e3;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Reservation Form</h2>
+    <form id="reservationForm" onsubmit="submitReservation(event)">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <input type="number" id="guests" placeholder="Number of Guests" required>
+
+      <div class="btn-group">
+        <button type="submit">Reserve</button>
+        <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+      </div>
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function submitReservation(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const guests = document.getElementById("guests").value;
+
+      document.getElementById("output").innerHTML = `
+        <h4>Reservation Confirmed:</h4>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Time:</strong> ${time}</p>
+        <p><strong>Guests:</strong> ${guests}</p>
+      `;
+    }
+
+    function clearForm() {
+      document.getElementById("reservationForm").reset();
+      document.getElementById("output").innerHTML = "";
+    }
+  </script>
+</body>
+</html>

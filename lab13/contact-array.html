@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Array</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #cfe0c3, #8fb996);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #f7f9f3;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      text-align: center;
+      border: 1px solid #c2d3b0;
+      animation: fadeIn 0.6s ease-in;
+    }
+    h2 {
+      color: #3b5e42;
+      margin-bottom: 15px;
+    }
+    input, textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #a9c3a2;
+      background-color: #f0f6ef;
+      outline: none;
+      transition: 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #7fa67f;
+      box-shadow: 0 0 5px #a6c8a4;
+    }
+    textarea {
+      resize: none;
+      height: 80px;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    button {
+      flex: 1;
+      background: #6b8f71;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #557b5a;
+      transform: scale(1.05);
+    }
+    .clear-btn {
+      background: #b1cbbb;
+      color: #2f4f4f;
+    }
+    .clear-btn:hover {
+      background: #9ab9a6;
+    }
+    ul {
+      text-align: left;
+      background: #e6f1e3;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 15px;
+      border: 1px solid #b5c9b1;
+      color: #3b5e42;
+      transition: opacity 0.5s ease;
+    }
+    ul.fade-out {
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Form</h2>
+    <form id="contactForm" onsubmit="saveContact(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
+
+      <div class="btn-group">
+        <button type="submit">Submit</button>
+        <button type="button" class="clear-btn" onclick="clearContacts()">Clear</button>
+      </div>
+    </form>
+
+    <h4>Messages:</h4>
+    <ul id="contactList"></ul>
+  </div>
+
+  <script>
+    const contacts = [];
+
+    function saveContact(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+
+      contacts.push({ name, message });
+      displayContacts();
+      document.getElementById("contactForm").reset();
+    }
+
+    function displayContacts() {
+      const list = document.getElementById("contactList");
+      list.classList.remove("fade-out");
+      list.innerHTML = "";
+      contacts.forEach(c => {
+        const item = document.createElement("li");
+        item.textContent = `${c.name}: ${c.message}`;
+        list.appendChild(item);
+      });
+    }
+
+    function clearContacts() {
+      const list = document.getElementById("contactList");
+      list.classList.add("fade-out");
+      setTimeout(() => {
+        contacts.length = 0; // clear array
+        list.innerHTML = "";
+      }, 500); // wait for fade-out before clearing
+    }
+  </script>
+</body>
+</html>
